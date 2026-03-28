@@ -1,24 +1,19 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, animate } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 
 /* ── Animated counter hook ─────────────────────────────────── */
-const useCounter = (target: number, duration = 2000, inView = false) => {
+const useCounter = (target: number, duration = 2, inView = false) => {
   const [count, setCount] = useState(0);
   useEffect(() => {
     if (!inView) return;
-    let start = 0;
-    const step = Math.ceil(target / (duration / 16));
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(start);
-      }
-    }, 16);
-    return () => clearInterval(timer);
+    const controls = animate(0, target, {
+      duration: duration,
+      onUpdate(value) {
+        setCount(Math.round(value));
+      },
+    });
+    return () => controls.stop();
   }, [target, duration, inView]);
   return count;
 };
@@ -66,7 +61,7 @@ const StatCard = ({
   index: number;
   inView: boolean;
 }) => {
-  const count = useCounter(value, 1800, inView);
+  const count = useCounter(value, 1.8, inView);
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

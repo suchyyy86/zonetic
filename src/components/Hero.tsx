@@ -24,7 +24,7 @@ const Hero = () => {
               Budoucnosti
             </h1>
             <p className="text-lg text-muted-foreground max-w-md mb-8 leading-relaxed">
-              Přeměňujeme odvážné nápady v realitu prostřednictvím inovativního inženýrství, preciznosti a škálovatelných řešení navržených pro růst a úspěch.
+              Budujeme moderní a rychlé webové aplikace. Spojujeme špičkovou technologii s profesionálním designem pro skutečný růst vašeho podnikání.
             </p>
             <a href="#kontakt">
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 text-base">
@@ -43,10 +43,12 @@ const Hero = () => {
           >
             <img
               src={heroImg}
-              alt="Webový vývoj"
+              alt="Webový vývoj Zonetic"
               width={1024}
               height={1024}
-              className="w-full max-w-lg"
+              loading="eager"
+              fetchPriority="high"
+              className="w-full max-w-lg drop-shadow-2xl"
             />
           </motion.div>
         </div>
