@@ -21,9 +21,9 @@ const useCounter = (target: number, duration = 2, inView = false) => {
 /* ── Data ──────────────────────────────────────────────────── */
 const stats = [
   { value: 50, suffix: "+", label: "Dokončených projektů" },
-  { value: 100, suffix: "%", label: "Spokojených klientů" },
-  { value: 3, suffix: "+", label: "Roky zkušeností" },
-  { value: 4, suffix: "", label: "Týdny průměrná dodávka" },
+  { value: 100, suffix: " %", label: "Spokojených klientů" },
+  { value: 14, suffix: " Dní", label: "Průměrná doba dodání" },
+  { value: 99, suffix: " %", label: "Skóre rychlosti webu" },
 ];
 
 const testimonials = [
