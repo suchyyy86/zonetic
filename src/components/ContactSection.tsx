@@ -4,16 +4,14 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 
 const ContactSection = () => {
-  const { toast } = useToast();
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Zpráva odeslána!",
+    toast.success("Zpráva odeslána!", {
       description: "Děkujeme, ozveme se vám co nejdříve.",
     });
     setFormData({ name: "", email: "", message: "" });
