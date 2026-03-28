@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import logoImg from "@/assets/logo.png";
 
 const navLinks = [
-  { label: "Služby", href: "#sluzby" },
   { label: "O nás", href: "#proc-zonetic" },
+  { label: "Proces", href: "#sluzby" },
   { label: "FAQ", href: "#faq" },
   { label: "Kontakt", href: "#kontakt" },
 ];

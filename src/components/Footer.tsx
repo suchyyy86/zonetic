@@ -1,15 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import logoImg from "@/assets/logo.png";
+import logoImg from "@/assets/logo_bg_remove.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-foreground text-primary-foreground py-12 md:py-16">
+    <footer className="bg-primary text-primary-foreground py-12 md:py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <img src={logoImg} alt="Zonetic" className="h-8 mb-4 brightness-0 invert" />
+            <img src={logoImg} alt="Zonetic" className="h-8 md:h-10 mb-4" />
             <p className="text-primary-foreground/60 text-sm leading-relaxed">
               Přeměňujeme odvážné nápady v realitu prostřednictvím inovativního inženýrství, preciznosti a škálovatelných řešení.
             </p>
@@ -20,6 +20,7 @@ const Footer = () => {
             <h4 className="font-semibold text-sm uppercase tracking-wider mb-4 text-primary-foreground/80">Zdroje</h4>
             <ul className="space-y-2.5">
               <li><a href="#proc-zonetic" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">O nás</a></li>
+              <li><a href="#sluzby" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">Proces</a></li>
               <li><a href="#faq" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">FAQ</a></li>
               <li><a href="#kontakt" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">Kontakt</a></li>
             </ul>
