@@ -28,21 +28,21 @@ const stats = [
 
 const testimonials = [
   {
-    name: "Martin Novák",
-    role: "CEO, TechStart s.r.o.",
-    text: "Zonetic nám dodal web přesně podle představ a v rekordním čase. Komunikace byla výborná po celou dobu spolupráce.",
+    name: "Martin",
+    role: "Majitel B2B distribuční firmy",
+    text: "Zonetic nám překopali online prezentaci od základů. Rychlost načítání je teď úplně jinde a konečně působíme perfektně i před většími partnery ze zahraničí.",
     rating: 5,
   },
   {
-    name: "Petra Dvořáková",
-    role: "Marketingová manažerka, FreshBrand",
-    text: "Profesionální přístup od prvního kontaktu. Design překonal naše očekávání a konverzní poměr se zvedl o 40 %.",
+    name: "Veronika",
+    role: "E-commerce manažerka",
+    text: "Přechod na moderní web na míru byl pro nás zásadní. Ihned po spuštění se nám zvedl konverzní poměr a hlavně odpadly časté technické výpadky z minulosti.",
     rating: 5,
   },
   {
-    name: "Jakub Šťastný",
-    role: "Zakladatel, GreenLeaf",
-    text: "Konečně tým, který rozumí tomu, co potřebuji. Žádné zbytečné komplikace, jasná komunikace a skvělý výsledek.",
+    name: "Tomáš",
+    role: "Zakladatel lokálního podniku",
+    text: "Cením si upřímného přístupu, nulových skrytých poplatků a dodržení termínu dodání. Výsledek předčil naše očekávání a web teď skvěle generuje B2B poptávky.",
     rating: 5,
   },
 ];
