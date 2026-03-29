@@ -141,7 +141,7 @@ const WhyZonetic = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.12 }}
-              className="relative bg-background rounded-2xl p-6 md:p-8 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+              className="relative flex flex-col h-full bg-background rounded-2xl p-6 md:p-8 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
             >
               <Quote className="absolute top-5 right-5 h-8 w-8 text-primary/10" />
               {/* Stars */}
@@ -156,7 +156,7 @@ const WhyZonetic = () => {
               <p className="text-foreground/80 text-sm leading-relaxed mb-6">
                 „{t.text}"
               </p>
-              <div className="border-t border-border pt-4">
+              <div className="border-t border-border pt-4 mt-auto">
                 <p className="font-semibold text-foreground text-sm">
                   {t.name}
                 </p>
