@@ -29,7 +29,7 @@ const ContactSection = () => {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Šetříme váš čas i peníze,<br />na každém kroku
+              Převezmeme všechny technické starosti,<br />abyste se vy mohli věnovat svému byznysu.
             </h2>
             <p className="text-white/80 text-lg max-w-xl mx-auto mb-8">
               Efektivní řešení, která vám přináší skutečnou hodnotu.
