@@ -14,14 +14,18 @@ const navLinks = [
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
     if (href.startsWith("#")) {
       e.preventDefault();
       const element = document.querySelector(href);
       if (element) {
         // Výška zafixovaného Headeru pro mobil je h-16 (64 pixelů)
-        const yOffset = -64; 
-        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+        const yOffset = -64;
+        const y =
+          element.getBoundingClientRect().top + window.scrollY + yOffset;
         window.scrollTo({ top: y, behavior: "smooth" });
         window.history.pushState(null, "", href);
       }
@@ -31,6 +35,13 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-md border-b border-border">
+      {/* Skip Navigation */}
+      <a
+        href="#kontakt"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg"
+      >
+        Přeskočit na obsah
+      </a>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
@@ -44,6 +55,7 @@ const Header = () => {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
               >
                 {link.label}
@@ -52,7 +64,11 @@ const Header = () => {
           </nav>
 
           {/* Desktop CTA */}
-          <a href="#kontakt" className="hidden md:block">
+          <a
+            href="#kontakt"
+            onClick={(e) => handleNavClick(e, "#kontakt")}
+            className="hidden md:block"
+          >
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6">
               Kontaktujte nás
               <ArrowRight className="ml-1 h-4 w-4" />
@@ -64,6 +80,7 @@ const Header = () => {
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 text-foreground"
             aria-label="Menu"
+            aria-expanded={isOpen}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -90,7 +107,11 @@ const Header = () => {
                   {link.label}
                 </a>
               ))}
-              <a href="#kontakt" onClick={(e) => handleNavClick(e, "#kontakt")} className="mt-2">
+              <a
+                href="#kontakt"
+                onClick={(e) => handleNavClick(e, "#kontakt")}
+                className="mt-2"
+              >
                 <Button className="w-full bg-primary text-primary-foreground rounded-full">
                   Kontaktujte nás
                   <ArrowRight className="ml-1 h-4 w-4" />

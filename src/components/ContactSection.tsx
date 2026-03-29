@@ -14,6 +14,7 @@ const ContactSection = () => {
     phone: "",
     company: "",
     message: "",
+    website: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -37,7 +38,14 @@ const ContactSection = () => {
       toast.success("Zpráva odeslána!", {
         description: "Děkujeme, ozveme se vám co nejdříve.",
       });
-      setFormData({ name: "", email: "", phone: "", company: "", message: "" });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        message: "",
+        website: "",
+      });
     } catch (error) {
       toast.error("Odeslání selhalo", {
         description:
@@ -104,12 +112,27 @@ const ContactSection = () => {
             onSubmit={handleSubmit}
             className="space-y-5"
           >
+            {/* Honeypot — hidden from real users, catches bots */}
+            <div className="absolute opacity-0 -z-10" aria-hidden="true">
+              <label htmlFor="website">Website</label>
+              <input
+                id="website"
+                name="website"
+                type="text"
+                value={formData.website}
+                onChange={(e) =>
+                  setFormData({ ...formData, website: e.target.value })
+                }
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
             <div>
               <label
                 htmlFor="name"
                 className="block text-sm font-medium text-foreground mb-1.5"
               >
-                Jméno
+                Jméno <span className="text-destructive">*</span>
               </label>
               <Input
                 id="name"
@@ -119,6 +142,8 @@ const ContactSection = () => {
                   setFormData({ ...formData, name: e.target.value })
                 }
                 required
+                aria-required="true"
+                maxLength={200}
                 className="rounded-xl bg-background"
               />
             </div>
@@ -127,7 +152,7 @@ const ContactSection = () => {
                 htmlFor="email"
                 className="block text-sm font-medium text-foreground mb-1.5"
               >
-                E-mail
+                E-mail <span className="text-destructive">*</span>
               </label>
               <Input
                 id="email"
@@ -138,6 +163,7 @@ const ContactSection = () => {
                   setFormData({ ...formData, email: e.target.value })
                 }
                 required
+                aria-required="true"
                 className="rounded-xl bg-background"
               />
             </div>
@@ -190,7 +216,7 @@ const ContactSection = () => {
                 htmlFor="message"
                 className="block text-sm font-medium text-foreground mb-1.5"
               >
-                Zpráva
+                Zpráva <span className="text-destructive">*</span>
               </label>
               <Textarea
                 id="message"
@@ -201,6 +227,8 @@ const ContactSection = () => {
                   setFormData({ ...formData, message: e.target.value })
                 }
                 required
+                aria-required="true"
+                maxLength={5000}
                 className="rounded-xl bg-background resize-none"
               />
             </div>

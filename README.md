@@ -1,61 +1,102 @@
-# Zonetic — Architekti Vaší Digitální Budoucnosti
+# Zonetic
 
-Webová prezentace agentury [Zonetic](https://zonetic.cz) — tvoříme moderní webové stránky na míru, UI/UX a grafický design.
+Marketingovy web agentury Zonetic zamereny na tvorbu premiovych webu na miru.
 
-## Tech Stack
+Live: [https://zonetic.cz](https://zonetic.cz)
 
-- **Framework**: React 18 + TypeScript
-- **Bundler**: Vite
-- **Styling**: Tailwind CSS + shadcn/ui
-- **Animations**: Framer Motion
-- **Deploy**: Vercel (GitHub integration)
+## Co projekt obsahuje
 
-## Development
+- Landing page s hladkou navigaci mezi sekcemi
+- Kontaktni formular odesilany pres serverless endpoint (`/api/contact`)
+- Ochrana osobnich udaju na samostatne route (`/ochrana-udaju`)
+- Cookie consent lista (accept/reject) s podminenym nacitanim analytiky
+- SEO zaklad: title, meta description, Open Graph, Twitter card, sitemap, robots
+- OG image v `public/og-image.png`
+
+## Tech stack
+
+- React 18 + TypeScript
+- Vite 5
+- Tailwind CSS + shadcn/ui
+- Framer Motion
+- React Router
+- Vercel Analytics + Speed Insights (az po souhlasu)
+- Resend (odeslani poptavky e-mailem)
+
+## Spusteni lokalne
 
 ```bash
-# Instalace závislostí
 npm install
-
-# Vývojový server (http://localhost:3000)
 npm run dev
-
-# Produkční build
-npm run build
-
-# Náhled buildu
-npm run preview
-
-# Lint
-npm run lint
-
-# Testy
-npm run test
 ```
+
+Vyvojovy server bezi na `http://localhost:3000`.
+
+## Script prikazy
+
+```bash
+npm run dev
+npm run build
+npm run preview
+npm run lint
+npm run test
+npm run test:watch
+```
+
+## Environment variables
+
+Env soubory nejsou v repozitari. Promenne jsou nastavene primo ve Vercel projektu.
+
+Pro lokalni beh je nastav v shellu nebo vlastnim `.env.local` souboru:
+
+- `RESEND_API_KEY` (required) - API klic pro Resend
+- `CONTACT_EMAIL` (optional) - cilovy e-mail pro poptavky (default `kontakt@zonetic.cz`)
 
 ## Struktura projektu
 
-```
+```text
+api/
+	contact.ts                # Serverless endpoint pro formular
+public/
+	favicon.png
+	og-image.png
+	robots.txt
+	sitemap.xml
 src/
-├── assets/          # Obrázky a ilustrace
-├── components/
-│   ├── ui/          # shadcn/ui komponenty
-│   ├── Header.tsx
-│   ├── Hero.tsx
-│   ├── WhyZonetic.tsx
-│   ├── Services.tsx
-│   ├── ExpertHelp.tsx
-│   ├── FAQ.tsx
-│   ├── ContactSection.tsx
-│   └── Footer.tsx
-├── pages/
-│   ├── Index.tsx
-│   └── NotFound.tsx
-├── lib/             # Utility funkce
-├── hooks/           # Custom React hooks
-├── index.css        # Globální styly + Tailwind
-└── main.tsx         # Entry point
+	assets/
+	components/
+		ContactSection.tsx
+		CookieConsent.tsx
+		ErrorBoundary.tsx
+		FAQ.tsx
+		Footer.tsx
+		Header.tsx
+		Hero.tsx
+		Services.tsx
+		WhyZonetic.tsx
+		ui/
+	lib/
+		cookie-consent.ts
+		utils.ts
+	pages/
+		Index.tsx
+		NotFound.tsx
+		PrivacyPolicy.tsx
+	App.tsx
+	index.css
+	main.tsx
 ```
+
+## Bezpecnost a soukromi
+
+- Endpoint validuje vstupy (`name`, `email`, `message`, volitelne `phone`, `company`)
+- Zakladni anti-spam honeypot pole (`website`)
+- HTML escaping vstupu pred vlozenim do e-mailove sablony
+- Cookie consent se uklada do `localStorage` s expiraci
 
 ## Deploy
 
-Projekt je automaticky deployován na Vercel při push do `master` branch.
+Repo je pripraveny pro nasazeni na Vercel. Pri deployi nastav environment variables:
+
+- `RESEND_API_KEY`
+- `CONTACT_EMAIL` (volitelne)

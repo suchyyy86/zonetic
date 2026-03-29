@@ -1,7 +1,23 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { useEffect } from "react";
 
 const PrivacyPolicy = () => {
+  useEffect(() => {
+    let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    const original = link?.getAttribute("href");
+    if (link) {
+      link.setAttribute("href", "https://zonetic.cz/ochrana-udaju");
+    } else {
+      link = document.createElement("link");
+      link.setAttribute("rel", "canonical");
+      link.setAttribute("href", "https://zonetic.cz/ochrana-udaju");
+      document.head.appendChild(link);
+    }
+    return () => {
+      if (original && link) link.setAttribute("href", original);
+    };
+  }, []);
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 max-w-3xl">
@@ -82,6 +98,16 @@ const PrivacyPolicy = () => {
             doručení e-mailové zprávy správci. Data nejsou ukládána do žádné
             databáze — jsou zpracována výhradně formou e-mailové zprávy. Přenos
             dat do USA je zajištěn na základě odpovídajících záruk dle GDPR.
+            Více informací o zabezpečení dat naleznete na{" "}
+            <a
+              href="https://resend.com/security"
+              className="underline hover:text-foreground"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              resend.com/security
+            </a>
+            .
           </p>
 
           <h2 className="text-xl font-semibold text-foreground mt-8">
