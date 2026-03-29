@@ -7,14 +7,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", company: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success("Zpráva odeslána!", {
       description: "Děkujeme, ozveme se vám co nejdříve.",
     });
-    setFormData({ name: "", email: "", message: "" });
+    setFormData({ name: "", email: "", phone: "", company: "", message: "" });
   };
 
   return (
@@ -57,12 +57,9 @@ const ContactSection = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-10"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
               Napište nám
             </h2>
-            <p className="text-muted-foreground text-lg">
-              Máte projekt na mysli? Rádi si o něm promluvíme.
-            </p>
           </motion.div>
 
           <motion.form
@@ -99,6 +96,34 @@ const ContactSection = () => {
                 required
                 className="rounded-xl bg-background"
               />
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-1.5">
+                  Telefon <span className="text-muted-foreground text-xs">(volitelně)</span>
+                </label>
+                <Input
+                  id="phone"
+                  type="tel"
+                  placeholder="+420..."
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="rounded-xl bg-background"
+                />
+              </div>
+              <div>
+                <label htmlFor="company" className="block text-sm font-medium text-foreground mb-1.5">
+                  Název podniku <span className="text-muted-foreground text-xs">(volitelně)</span>
+                </label>
+                <Input
+                  id="company"
+                  placeholder="Vaše firma, restaurace..."
+                  value={formData.company}
+                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                  className="rounded-xl bg-background"
+                />
+              </div>
             </div>
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1.5">
