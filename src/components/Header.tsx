@@ -26,8 +26,7 @@ const Header = () => {
         window.history.pushState(null, "", href);
       }
     }
-    // Necháme menu otevřené zlomek vteřiny, aby scroll animace vůbec stihla začít
-    setTimeout(() => setIsOpen(false), 200);
+    setIsOpen(false);
   };
 
   return (
