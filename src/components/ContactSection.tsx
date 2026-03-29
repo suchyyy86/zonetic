@@ -32,7 +32,7 @@ const ContactSection = () => {
               Váš čas je drahý.<br />Nechte vývoj na nás.
             </h2>
             <p className="text-white/80 text-lg max-w-xl mx-auto mb-8">
-              Efektivní řešení, která vám přináší skutečnou hodnotu.
+              Získejte moderní a rychlý web bez jediného technického kompromisu.
             </p>
             <a href="#kontakt-formular">
               <Button
