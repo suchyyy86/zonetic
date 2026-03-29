@@ -34,7 +34,7 @@ const Footer = () => {
             <p className="text-primary-foreground/60 text-sm mb-4 leading-relaxed">
               Napište nám o svém podniku. My obratem navrhneme postup, se kterým získáte prémiový výsledek bez technických starostí.
             </p>
-            <a href="#kontakt">
+            <a href="#kontakt-formular">
               <Button className="bg-background text-foreground hover:bg-background/90 rounded-full px-6">
                 Kontaktujte nás
                 <ArrowRight className="ml-1 h-4 w-4" />
