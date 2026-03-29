@@ -14,6 +14,18 @@ const navLinks = [
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    setIsOpen(false);
+    if (href.startsWith("#")) {
+      const element = document.querySelector(href);
+      if (element) {
+        e.preventDefault();
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", href);
+      }
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,13 +81,13 @@ const Header = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="py-3 px-4 text-sm font-medium text-foreground/70 hover:text-primary hover:bg-muted rounded-lg transition-colors"
                 >
                   {link.label}
                 </a>
               ))}
-              <a href="#kontakt" onClick={() => setIsOpen(false)} className="mt-2">
+              <a href="#kontakt" onClick={(e) => handleNavClick(e, "#kontakt")} className="mt-2">
                 <Button className="w-full bg-primary text-primary-foreground rounded-full">
                   Kontaktujte nás
                   <ArrowRight className="ml-1 h-4 w-4" />
