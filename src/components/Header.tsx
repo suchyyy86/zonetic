@@ -19,8 +19,8 @@ const Header = () => {
       e.preventDefault();
       const element = document.querySelector(href);
       if (element) {
-        // Vypočteme pozici elementu minus výška zafixovaného Headeru (cca 80px)
-        const yOffset = -80; 
+        // Výška zafixovaného Headeru pro mobil je h-16 (64 pixelů)
+        const yOffset = -64; 
         const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
         window.scrollTo({ top: y, behavior: "smooth" });
         window.history.pushState(null, "", href);
