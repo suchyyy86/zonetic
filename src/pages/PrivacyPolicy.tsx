@@ -7,11 +7,11 @@ const PrivacyPolicy = () => {
     let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     const original = link?.getAttribute("href");
     if (link) {
-      link.setAttribute("href", "https://zonetic.cz/ochrana-udaju");
+      link.setAttribute("href", "https://www.zonetic.cz/ochrana-udaju");
     } else {
       link = document.createElement("link");
       link.setAttribute("rel", "canonical");
-      link.setAttribute("href", "https://zonetic.cz/ochrana-udaju");
+      link.setAttribute("href", "https://www.zonetic.cz/ochrana-udaju");
       document.head.appendChild(link);
     }
     return () => {

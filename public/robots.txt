@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://zonetic.cz/sitemap.xml
+Sitemap: https://www.zonetic.cz/sitemap.xml
