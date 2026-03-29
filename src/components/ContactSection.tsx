@@ -118,7 +118,7 @@ const ContactSection = () => {
                 </label>
                 <Input
                   id="company"
-                  placeholder="Název firmy"
+                  placeholder="Vaše firma s.r.o."
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                   className="rounded-xl bg-background"
@@ -131,7 +131,7 @@ const ContactSection = () => {
               </label>
               <Textarea
                 id="message"
-                placeholder="S čím vám můžeme pomoci? (Např. potřebuji nový web pro mou restauraci...)"
+                placeholder="Váš požadavek..."
                 rows={5}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
