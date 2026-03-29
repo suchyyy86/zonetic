@@ -97,7 +97,7 @@ const ContactSection = () => {
                 className="rounded-xl bg-background"
               />
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-1.5">
@@ -114,11 +114,11 @@ const ContactSection = () => {
               </div>
               <div>
                 <label htmlFor="company" className="block text-sm font-medium text-foreground mb-1.5">
-                  Název podniku <span className="text-muted-foreground text-xs">(volitelně)</span>
+                  Název firmy <span className="text-muted-foreground text-xs">(volitelně)</span>
                 </label>
                 <Input
                   id="company"
-                  placeholder="Vaše firma, restaurace..."
+                  placeholder="Název firmy"
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                   className="rounded-xl bg-background"
@@ -131,7 +131,7 @@ const ContactSection = () => {
               </label>
               <Textarea
                 id="message"
-                placeholder="Popište váš projekt..."
+                placeholder="S čím vám můžeme pomoci? (Např. potřebuji nový web pro mou restauraci...)"
                 rows={5}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
