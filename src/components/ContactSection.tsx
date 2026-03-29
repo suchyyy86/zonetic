@@ -8,13 +8,36 @@ import { toast } from "sonner";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", company: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Zpráva odeslána!", {
-      description: "Děkujeme, ozveme se vám co nejdříve.",
-    });
-    setFormData({ name: "", email: "", phone: "", company: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Nepodařilo se odeslat zprávu.');
+      }
+
+      toast.success("Zpráva odeslána!", {
+        description: "Děkujeme, ozveme se vám co nejdříve.",
+      });
+      setFormData({ name: "", email: "", phone: "", company: "", message: "" });
+    } catch (error) {
+      toast.error("Odeslání selhalo", {
+        description: "Došlo k chybě při odesílání zprávy. Pokud problém přetrvává, napište nám přímo na e-mail.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -142,9 +165,10 @@ const ContactSection = () => {
             <Button
               type="submit"
               size="lg"
+              disabled={isSubmitting}
               className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full text-base"
             >
-              Odeslat
+              {isSubmitting ? "Odesílám..." : "Odeslat"}
               <Send className="ml-2 h-4 w-4" />
             </Button>
           </motion.form>
