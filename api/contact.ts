@@ -80,7 +80,7 @@ export default async function handler(req: any, res: any) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: "Zonetic Web Form <onboarding@resend.dev>",
+      from: "Zonetic Web Form <kontakt@zonetic.cz>",
       to: CONTACT_EMAIL,
       subject: `Nová zpráva od: ${safeName}`,
       replyTo: email,
