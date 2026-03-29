@@ -9,7 +9,7 @@ import {
 const faqs = [
   {
     question: "Jak dlouho trvá vytvoření webových stránek?",
-    answer: "Doba realizace závisí na rozsahu a složitosti projektu. Jednodušší prezentační weby zvládneme za 2–4 týdny, složitější projekty s vlastní funkcionalitou mohou trvat 6–10 týdnů. Přesný harmonogram stanovíme po úvodní konzultaci.",
+    answer: "Zakládáme si na efektivitě. Díky odladěnému procesu spouštíme klasické prezentační weby pro B2B firmy a lokální podniky (vč. restaurací) průměrně do 14 dnů od schválení podkladů. Pokud se jedná o komplexnější systém s rezervacemi či složitějšími funkcemi, bavíme se o 3–5 týdnech. Přesný a závazný termín se však dozvíte hned po první schůzce.",
   },
   {
     question: "Kolik stojí tvorba webu?",
@@ -50,7 +50,7 @@ const FAQ = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <Accordion type="single" collapsible className="space-y-3">
+          <Accordion type="single" collapsible defaultValue="item-0" className="space-y-3">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
