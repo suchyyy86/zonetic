@@ -1,13 +1,20 @@
 import { useState } from "react";
 import { Send, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", company: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    message: "",
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -15,16 +22,16 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
       if (!response.ok) {
-        throw new Error('Nepodařilo se odeslat zprávu.');
+        throw new Error("Nepodařilo se odeslat zprávu.");
       }
 
       toast.success("Zpráva odeslána!", {
@@ -33,7 +40,8 @@ const ContactSection = () => {
       setFormData({ name: "", email: "", phone: "", company: "", message: "" });
     } catch (error) {
       toast.error("Odeslání selhalo", {
-        description: "Došlo k chybě při odesílání zprávy. Pokud problém přetrvává, napište nám přímo na e-mail.",
+        description:
+          "Došlo k chybě při odesílání zprávy. Pokud problém přetrvává, napište nám přímo na e-mail.",
       });
     } finally {
       setIsSubmitting(false);
@@ -52,10 +60,13 @@ const ContactSection = () => {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Váš čas je drahý.<br />Nechte vývoj na nás.
+              Váš čas je drahý.
+              <br />
+              Nechte vývoj na nás.
             </h2>
             <p className="text-white/80 text-lg max-w-xl mx-auto mb-8">
-              Získejte moderní a rychlý web bez technických kompromisů, za mimořádně kompetitivní cenu.
+              Získejte moderní a rychlý web bez technických kompromisů, za
+              mimořádně kompetitivní cenu.
             </p>
             <a href="#kontakt">
               <Button
@@ -94,20 +105,28 @@ const ContactSection = () => {
             className="space-y-5"
           >
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-foreground mb-1.5"
+              >
                 Jméno
               </label>
               <Input
                 id="name"
                 placeholder="Vaše jméno"
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
                 required
                 className="rounded-xl bg-background"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1.5">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-foreground mb-1.5"
+              >
                 E-mail
               </label>
               <Input
@@ -115,7 +134,9 @@ const ContactSection = () => {
                 type="email"
                 placeholder="vas@email.cz"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 required
                 className="rounded-xl bg-background"
               />
@@ -123,33 +144,52 @@ const ContactSection = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-1.5">
-                  Telefon <span className="text-muted-foreground text-xs">(volitelně)</span>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-foreground mb-1.5"
+                >
+                  Telefon{" "}
+                  <span className="text-muted-foreground text-xs">
+                    (volitelně)
+                  </span>
                 </label>
                 <Input
                   id="phone"
                   type="tel"
                   placeholder="+420..."
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
                   className="rounded-xl bg-background"
                 />
               </div>
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-foreground mb-1.5">
-                  Název firmy <span className="text-muted-foreground text-xs">(volitelně)</span>
+                <label
+                  htmlFor="company"
+                  className="block text-sm font-medium text-foreground mb-1.5"
+                >
+                  Název firmy{" "}
+                  <span className="text-muted-foreground text-xs">
+                    (volitelně)
+                  </span>
                 </label>
                 <Input
                   id="company"
                   placeholder="Vaše firma s.r.o."
                   value={formData.company}
-                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, company: e.target.value })
+                  }
                   className="rounded-xl bg-background"
                 />
               </div>
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1.5">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-foreground mb-1.5"
+              >
                 Zpráva
               </label>
               <Textarea
@@ -157,7 +197,9 @@ const ContactSection = () => {
                 placeholder="Váš požadavek..."
                 rows={5}
                 value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
                 required
                 className="rounded-xl bg-background resize-none"
               />
@@ -171,6 +213,16 @@ const ContactSection = () => {
               {isSubmitting ? "Odesílám..." : "Odeslat"}
               <Send className="ml-2 h-4 w-4" />
             </Button>
+            <p className="text-xs text-muted-foreground text-center">
+              Odesláním formuláře souhlasíte se{" "}
+              <Link
+                to="/ochrana-udaju"
+                className="underline hover:text-foreground transition-colors"
+              >
+                zásadami ochrany osobních údajů
+              </Link>
+              .
+            </p>
           </motion.form>
         </div>
       </div>

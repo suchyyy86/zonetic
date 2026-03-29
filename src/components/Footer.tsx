@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import logoImg from "@/assets/logo_bg_remove.png";
 
 const Footer = () => {
@@ -11,18 +12,49 @@ const Footer = () => {
           <div>
             <img src={logoImg} alt="Zonetic" className="h-8 md:h-10 mb-4" />
             <p className="text-primary-foreground/60 text-sm leading-relaxed">
-              Digitální partnerství bez kompromisů. Tvoříme bleskurychlé prémiové weby, které spolehlivě prodávají vaše služby za vás.
+              Digitální partnerství bez kompromisů. Tvoříme bleskurychlé
+              prémiové weby, které spolehlivě prodávají vaše služby za vás.
             </p>
           </div>
 
           {/* Resources */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-wider mb-4 text-primary-foreground/80">Navigace</h4>
+            <h4 className="font-semibold text-sm uppercase tracking-wider mb-4 text-primary-foreground/80">
+              Navigace
+            </h4>
             <ul className="space-y-2.5">
-              <li><a href="#proc-zonetic" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">O nás</a></li>
-              <li><a href="#sluzby" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">Proces</a></li>
-              <li><a href="#faq" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">FAQ</a></li>
-              <li><a href="#kontakt" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">Kontakt</a></li>
+              <li>
+                <a
+                  href="#proc-zonetic"
+                  className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                >
+                  O nás
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#sluzby"
+                  className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                >
+                  Proces
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#faq"
+                  className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                >
+                  FAQ
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#kontakt"
+                  className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                >
+                  Kontakt
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -32,7 +64,8 @@ const Footer = () => {
               Jdeme do toho?
             </h4>
             <p className="text-primary-foreground/60 text-sm mb-4 leading-relaxed">
-              Napište nám o svém podniku. My obratem navrhneme postup, se kterým získáte prémiový výsledek bez technických starostí.
+              Napište nám o svém podniku. My obratem navrhneme postup, se kterým
+              získáte prémiový výsledek bez technických starostí.
             </p>
             <a href="#kontakt">
               <Button className="bg-background text-foreground hover:bg-background/90 rounded-full px-6">
@@ -43,10 +76,16 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 pt-6 text-center">
+        <div className="border-t border-primary-foreground/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-primary-foreground/40">
-            © {new Date().getFullYear()} Zonetic. Všechna práva vyhrazena.
+            © {new Date().getFullYear()} Zonetic · kontakt@zonetic.cz
           </p>
+          <Link
+            to="/ochrana-udaju"
+            className="text-sm text-primary-foreground/40 hover:text-primary-foreground/70 transition-colors"
+          >
+            Ochrana osobních údajů
+          </Link>
         </div>
       </div>
     </footer>
