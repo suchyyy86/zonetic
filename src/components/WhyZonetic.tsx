@@ -41,8 +41,8 @@ const testimonials = [
   },
   {
     name: "Tomáš",
-    role: "Zakladatel lokálního podniku",
-    text: "Cením si upřímného přístupu, nulových skrytých poplatků a dodržení termínu dodání. Výsledek předčil naše očekávání a web teď skvěle generuje B2B poptávky.",
+    role: "Majitel a provozovatel restaurace",
+    text: "Cením si upřímného přístupu a dodržení včasného termínu dodání. Nový web konečně na úrovni reprezentuje náš podnik a pomáhá nám skvěle doplňovat kapacity a rezervace.",
     rating: 5,
   },
 ];
