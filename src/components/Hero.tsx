@@ -47,7 +47,6 @@ const Hero = () => {
               width={1024}
               height={1024}
               loading="eager"
-              fetchPriority="high"
               className="w-full max-w-lg drop-shadow-2xl"
             />
           </motion.div>

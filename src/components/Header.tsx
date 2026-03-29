@@ -15,15 +15,19 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    setIsOpen(false);
     if (href.startsWith("#")) {
+      e.preventDefault();
       const element = document.querySelector(href);
       if (element) {
-        e.preventDefault();
-        element.scrollIntoView({ behavior: "smooth" });
+        // Vypočteme pozici elementu minus výška zafixovaného Headeru (cca 80px)
+        const yOffset = -80; 
+        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
         window.history.pushState(null, "", href);
       }
     }
+    // Necháme menu otevřené zlomek vteřiny, aby scroll animace vůbec stihla začít
+    setTimeout(() => setIsOpen(false), 200);
   };
 
   return (
