@@ -25,8 +25,8 @@ const steps = [
   },
   {
     step: "04",
-    title: "Spuštění & předání",
-    description: "Po důkladném testování web nasadíme na hosting, nastavíme analytiku a vše vám předáme. Samozřejmě vás zaškolíme, abyste web zvládli spravovat sami.",
+    title: "Spuštění & bezstarostný provoz",
+    description: "Po důkladném otestování web nasadíme a napojíme analytiku. Tím to ale nekončí – v rámci měsíční péče přebíráme kompletní technickou správu, prémiový výkonný hosting i bezpečnostní dohled. Vy se tak můžete plně věnovat svému byznysu.",
     image: stepLaunch,
   },
 ];
