@@ -9,7 +9,7 @@ import {
 const faqs = [
   {
     question: "Jak dlouho trvá vytvoření webových stránek?",
-    answer: "Zakládáme si na efektivitě. Díky odladěnému procesu spouštíme klasické prezentační weby pro B2B firmy a lokální podniky (vč. restaurací) průměrně do 14 dnů od schválení podkladů. Pokud se jedná o komplexnější systém s rezervacemi či složitějšími funkcemi, bavíme se o 3–5 týdnech. Přesný a závazný termín se však dozvíte hned po první schůzce.",
+    answer: "Standardní prezentační weby dodáváme v průměru do 14 dnů od obdržení podkladů. Složitější weby a rezervační systémy zaberou obvykle 3 až 5 týdnů. Přesný a závazný termín získáte vždy ještě před zahájením spolupráce.",
   },
   {
     question: "Kolik stojí tvorba webu?",
