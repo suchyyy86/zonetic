@@ -13,15 +13,11 @@ const faqs = [
   },
   {
     question: "Kolik stojí tvorba webu?",
-    answer: "Cena se odvíjí od rozsahu projektu, požadované funkcionality a grafického návrhu. Každý projekt kalkulujeme individuálně po úvodní konzultaci, abyste přesně věděli, co za svou investici získáte. Nezávaznou nabídku vám rádi připravíme zdarma.",
-  },
-  {
-    question: "Jak probíhá spolupráce?",
-    answer: "Na začátku si probereme vaše potřeby a cíle. Následně připravíme grafický návrh, po jeho schválení přejdeme k vývoji. Průběžně vás informujeme o postupu a zapojujeme vás do klíčových rozhodnutí, aby výsledek odpovídal vašim představám.",
+    answer: "Každý projekt naceňujeme individuálně podle požadovaných funkcí a grafického rozsahu. Po úvodní e-mailové nebo telefonické domluvě od nás obdržíte přesnou kalkulaci. Za svými čísly si pevně stojíme a nehrozí vám žádné skryté poplatky.",
   },
   {
     question: "Co vše potřebuji dodat před začátkem projektu?",
-    answer: "Ideálně nám dodejte texty, loga, fotografie a případně reference na weby, které se vám líbí. Pokud tyto materiály nemáte, jsme schopni vám s nimi pomoci — od copywritingu přes fotografování až po tvorbu grafických podkladů.",
+    answer: "Ideálně základní firemní identitu (logo) a stěžejní textové podklady (jídelní lístek, ceník a podobně). Pokud ale drtivou většinu věcí zatím nemáte, žádný problém – weby designujeme od nuly a s texty i tvorbou podkladů vám rádi kompletně pomůžeme.",
   },
 ];
 
