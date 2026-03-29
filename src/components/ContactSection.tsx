@@ -18,7 +18,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="kontakt">
+    <section>
       {/* Motivational Banner */}
       <div className="bg-gradient-to-r from-baltic to-baltic-light py-16 md:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -34,7 +34,7 @@ const ContactSection = () => {
             <p className="text-white/80 text-lg max-w-xl mx-auto mb-8">
               Získejte moderní a rychlý web bez technických kompromisů, za mimořádně kompetitivní cenu.
             </p>
-            <a href="#kontakt-formular">
+            <a href="#kontakt">
               <Button
                 size="lg"
                 className="bg-white text-baltic hover:bg-white/90 rounded-full px-8 text-base font-semibold"
@@ -48,7 +48,7 @@ const ContactSection = () => {
       </div>
 
       {/* Contact Form */}
-      <div id="kontakt-formular" className="py-16 md:py-24 bg-card">
+      <div id="kontakt" className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
